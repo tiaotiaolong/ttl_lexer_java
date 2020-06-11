@@ -43,6 +43,11 @@ public class Lexer {
         return ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z';
     }
 
+    //是否是数字
+    private boolean isDigit(char ch) {
+        return ch >= '0' && ch <= '9';
+    }
+
     //回到初始状态值 根据目前状态，传入因子来确定新状态
     public State changeState(char ch,State state){
 
@@ -74,13 +79,15 @@ public class Lexer {
                     }else
                         return State.ID;
                 }
+            case ID:
+                if(!isAlpha(ch) && !isDigit(ch)){
+
+                }
         }
 
 
         return State.INIT;
     }
-
-
 
 
     public ArrayList<Token> tokenize() throws IOException {

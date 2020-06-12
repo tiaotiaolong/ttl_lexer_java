@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         System.out.println("Hello World!");
 
-        Lexer lexer=new Lexer("int a=1;");
-        lexer.tokenize();
+        Lexer lexer=new Lexer("int ab1 = 1;");
+        System.out.println(lexer.tokenize());
     }
 }
